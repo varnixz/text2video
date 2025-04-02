@@ -1,0 +1,23 @@
+# Ignore Node.js dependencies inside animation
+animation/node_modules/
+
+# Ignore Python virtual environment
+backend/.venv/
+
+# Ignore Python cache files
+backend/__pycache__/
+
+# Ignore environment variables
+backend/.env
+
+# Ignore logs and temp files
+*.log
+*.tmp
+.DS_Store
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+
+# Ignore VS Code settings (optional)
+.vscode/
