@@ -81,7 +81,7 @@ def generate_video(prompt: str):
             raise HTTPException(status_code=500, detail="Video fetch failed")
 
         # Step 5: Process final video
-        output_video = process_video.process_videos(video_files, audio_files, bg_music)
+        output_video = process_video.process_videos(video_files, audio_files, bg_music, script)
         if not os.path.exists(output_video):
             raise HTTPException(status_code=500, detail="Video processing failed")
 

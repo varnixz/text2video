@@ -1,11 +1,13 @@
-from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips, vfx, CompositeAudioClip, concatenate_audioclips
+from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips, vfx, CompositeAudioClip, concatenate_audioclips, TextClip, CompositeVideoClip
 
-def process_videos(video_clips, audio_clips, bg_music_clip=None, output_file="final_reel.mp4"):
+def process_videos(video_clips, audio_clips, bg_music_clip=None, scripts=None, output_file="final_reel.mp4"):
     final_clips = []
     
     for i in range(len(video_clips)):
         video = VideoFileClip(video_clips[i])
         audio = AudioFileClip(audio_clips[i])
+        script = scripts[i] if scripts else ""
+        script = str(script)
 
         video = video.resized(width=1920, height=1080)
 
@@ -14,8 +16,27 @@ def process_videos(video_clips, audio_clips, bg_music_clip=None, output_file="fi
             video = video.subclipped(0, audio.duration)  
         else:
             video = video.with_effects([vfx.MultiplySpeed(video.duration / audio.duration)])
-
+        
         final_video = video.with_audio(audio)
+
+        # Create text clip with proper method chaining
+        txt_clip = (TextClip(
+            text=str(script),
+            font='Arial',
+            font_size=60,
+            color='white',
+            stroke_color='black',
+            # bg_color="white",
+            method = 'caption',
+            stroke_width=2,
+            text_align="center",
+            size=(final_video.w, None))
+            .with_duration(final_video.duration)
+            .with_position(('center', final_video.h - 200))
+            .with_start(0))
+
+        # Overlay text on video
+        final_video = CompositeVideoClip([final_video, txt_clip])
 
         # Apply transition effect
         if i > 0:
@@ -44,8 +65,9 @@ def process_videos(video_clips, audio_clips, bg_music_clip=None, output_file="fi
         bg_music = bg_music_clip.with_volume_scaled(0.1)
         final_output = final_output.with_audio(CompositeAudioClip([final_output.audio, bg_music.with_start(5)]))
 
+
     # Save final output
-    final_output.write_videofile(output_file, codec="libx264", fps=24)
+    final_output.write_videofile(output_file, codec="libx264", fps=24, threads=4, audio_codec='aac', preset='fast', bitrate='3000k')
 
     return output_file
 
