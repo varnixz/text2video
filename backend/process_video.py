@@ -1,4 +1,5 @@
 from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips, vfx, CompositeAudioClip, concatenate_audioclips, TextClip, CompositeVideoClip
+from PIL import ImageFont
 
 def process_videos(video_clips, audio_clips, bg_music_clip=None, scripts=None, output_file="final_reel.mp4"):
     final_clips = []
@@ -22,7 +23,7 @@ def process_videos(video_clips, audio_clips, bg_music_clip=None, scripts=None, o
         # Create text clip with proper method chaining
         txt_clip = (TextClip(
             text=str(script),
-            font='arial',
+            font="arial.ttf",
             font_size=60,
             color='white',
             stroke_color='black',
