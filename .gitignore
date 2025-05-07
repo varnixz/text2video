@@ -21,3 +21,7 @@ backend/.env
 
 # Ignore VS Code settings (optional)
 .vscode/
+
+background_music.mp3
+final_reel.mp4
+script.txt
