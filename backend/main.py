@@ -52,7 +52,7 @@ def generate_video(prompt: str):
         cleanup_old_files()
         
         # Create enhanced prompt while preserving original user input
-        enhanced_prompt = f"Generate a story on {prompt} in 120 words"
+        enhanced_prompt = f"Generate a complete story on {prompt} in 120 words"
 
         # Step 2: Generate script
         script = textVideo.script_generate(enhanced_prompt)

@@ -49,22 +49,23 @@ def process_videos(video_clips, audio_clips, bg_music_clip=None, scripts=None, o
 
     # Mix background music if provided
     if bg_music_clip:
-
-        # Calculate required loops
+        # Calculate required durations
         required_duration = final_output.duration
         bg_duration = bg_music_clip.duration
-        loops_needed = int(required_duration // bg_duration) + 1
-
-        # Create looped audio if needed
-        if loops_needed > 1:
-            bg_segments = [bg_music_clip] * loops_needed
-            bg_music = concatenate_audioclips(bg_segments).with_duration(required_duration)
+        
+        # Adjust background music duration based on video length
+        if required_duration <= bg_duration:
+            # If video is shorter than music, just cut the music to fit
+            bg_music = bg_music_clip.subclipped(0, required_duration-5)
         else:
-            bg_music = bg_music_clip.with_duration(required_duration)
-
-        bg_music = bg_music_clip.with_volume_scaled(0.1)
+            # If video is longer than music, loop the music to match video duration
+            loops_needed = int(required_duration // bg_duration) + 1
+            bg_segments = [bg_music_clip] * loops_needed
+            bg_music = concatenate_audioclips(bg_segments).subclipped(0, required_duration-5)
+        
+        # Set volume and mix with video audio
+        bg_music = bg_music.with_volume_scaled(0.1)
         final_output = final_output.with_audio(CompositeAudioClip([final_output.audio, bg_music.with_start(5)]))
-
 
     # Save final output
     final_output.write_videofile(output_file, codec="libx264", fps=24, threads=4, audio_codec='aac', preset='fast', bitrate='3000k')

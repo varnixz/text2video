@@ -168,7 +168,9 @@ def script_generate(prompt: str):
 
     # Split the text into smaller parts of max_length characters
     for sentence in sentences:
-        if len(current_part) + len(sentence) <= max_length:
+        if len(current_part) == 0:
+            current_part = sentence
+        elif len(current_part) + len(sentence) <= max_length:
             current_part += " " + sentence
         else:
             parts.append(current_part.strip())
@@ -183,12 +185,12 @@ def script_generate(prompt: str):
 def save_script(mssg):
     """
     Saves the generated story script to a text file (`script.txt`).
-    - Writes each text segment to the file on a new line.
+    - Only writes non-empty text segments to the file on a new line.
+    - Removes any empty lines from the beginning or throughout the script.
     """
     with open("script.txt", "w") as sc:
         for i in mssg:
             sc.write(i + "\n")
-
 
 # # Generate the story script
 # subtitle = script_generate("Create a story about a poor young boy who became sucessfull in 120 words")
