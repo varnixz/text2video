@@ -22,7 +22,7 @@ def process_videos(video_clips, audio_clips, bg_music_clip=None, scripts=None, o
         # Create text clip with proper method chaining
         txt_clip = (TextClip(
             text=str(script),
-            font='Arial',
+            font='arial',
             font_size=60,
             color='white',
             stroke_color='black',
