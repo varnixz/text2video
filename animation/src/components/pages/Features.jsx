@@ -28,7 +28,7 @@ const Features = () => {
               Transform text into professional videos using advanced AI algorithms
             </FeatureDescription>
           </FeatureContent>
-          <FeatureImage src="/path-to-your-image1.jpg" alt="AI Generation" />
+          <FeatureImage src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AI Generation" />
         </FeatureCard>
 
         <FeatureCard
@@ -45,7 +45,7 @@ const Features = () => {
               Choose from hundreds of professionally designed templates
             </FeatureDescription>
           </FeatureContent>
-          <FeatureImage src="/path-to-your-image2.jpg" alt="Templates" />
+          <FeatureImage src="https://images.pexels.com/photos/31943412/pexels-photo-31943412/free-photo-of-close-up-of-red-car-wheel-with-stylish-rims.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Templates" />
         </FeatureCard>
 
         <FeatureCard
@@ -62,7 +62,7 @@ const Features = () => {
               Edit videos with AI-assisted tools and effects
             </FeatureDescription>
           </FeatureContent>
-          <FeatureImage src="/path-to-your-image3.jpg" alt="Smart Editing" />
+          <FeatureImage src="https://images.pexels.com/photos/4792721/pexels-photo-4792721.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Smart Editing" />
         </FeatureCard>
       </FeatureGrid>
 
@@ -70,7 +70,7 @@ const Features = () => {
         <ShowcaseTitle>Advanced Capabilities</ShowcaseTitle>
         <ShowcaseGrid>
           <ShowcaseItem>
-            <ShowcaseImage src="/path-to-showcase1.jpg" alt="4K Quality" />
+            <ShowcaseImage src="https://images.pexels.com/photos/30699932/pexels-photo-30699932/free-photo-of-serene-woodland-creek-in-scotland.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="4K Quality" />
             <ShowcaseContent>
               <ShowcaseItemTitle>4K Quality</ShowcaseItemTitle>
               <ShowcaseDescription>
@@ -79,7 +79,7 @@ const Features = () => {
             </ShowcaseContent>
           </ShowcaseItem>
           <ShowcaseItem>
-            <ShowcaseImage src="/path-to-showcase2.jpg" alt="Style Transfer" />
+            <ShowcaseImage src="https://images.pexels.com/photos/31943689/pexels-photo-31943689/free-photo-of-black-and-white-portrait-of-a-bearded-man-in-tehran.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Style Transfer" />
             <ShowcaseContent>
               <ShowcaseItemTitle>Style Transfer</ShowcaseItemTitle>
               <ShowcaseDescription>

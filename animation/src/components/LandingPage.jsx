@@ -172,11 +172,11 @@ const LandingPage = () => {
 
       <FAQItem onClick={() => handleFaqClick(2)} expanded={expandedFaq === 2}>
         <FAQQuestion>
-          What kind of videos can you generate with invideo?
+          What kind of videos can you generate?
           <FAQIcon>{expandedFaq === 2 ? '−' : '+'}</FAQIcon>
         </FAQQuestion>
         <FAQAnswer visible={expandedFaq === 2}>
-          InVideo AI can generate various types of videos including explainers, promotional content, social media shorts, and educational materials.
+          AI can generate various types of videos including explainers, promotional content, social media shorts, and educational materials.
         </FAQAnswer>
       </FAQItem>
     </FAQList>

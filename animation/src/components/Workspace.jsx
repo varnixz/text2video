@@ -19,8 +19,9 @@ const Workspace = () => {
   
     try {
       // 1. Generate the video
+      const backendBaseURL = process.env.REACT_APP_BACKEND_BASE_URL;
       const response = await fetch(
-        `http://localhost:8000/generate?prompt=${encodeURIComponent(prompt)}`,
+        `${backendBaseURL}/generate?prompt=${encodeURIComponent(prompt)}`,
         {
           method: 'GET',
           headers: {

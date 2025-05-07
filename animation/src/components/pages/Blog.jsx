@@ -7,7 +7,7 @@ const Blog = () => {
       <Title>Blog</Title>
       <BlogGrid>
         <BlogPost>
-          <PostImage src="https://via.placeholder.com/400x250" alt="Blog post" />
+          <PostImage src="https://images.pexels.com/photos/7773547/pexels-photo-7773547.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blog post" />
           <PostContent>
             <PostDate>March 15, 2024</PostDate>
             <PostTitle>The Future of AI Video Generation</PostTitle>
@@ -15,7 +15,7 @@ const Blog = () => {
           </PostContent>
         </BlogPost>
         <BlogPost>
-          <PostImage src="https://via.placeholder.com/400x250" alt="Blog post" />
+          <PostImage src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blog post" />
           <PostContent>
             <PostDate>March 10, 2024</PostDate>
             <PostTitle>Tips for Better AI Videos</PostTitle>
